@@ -6,7 +6,7 @@
 /*   By: snakajim <snakajim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 13:13:06 by snakajim          #+#    #+#             */
-/*   Updated: 2024/12/22 17:47:16 by snakajim         ###   ########.fr       */
+/*   Updated: 2024/12/22 19:10:27 by snakajim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ bool	parse_input(t_pipex *pipex)
 		pipex->cmds[i].args = ft_split(pipex->argv[i + 2], ' ');
 		if (!pipex->cmds[i].args)
 			return (false);
-		if (!(i == 0 && pipex->infile_fd != -1) && !(i == pipex->cmd_count - 1
-				&& pipex->outfile_fd != -1))
+		if (!(i == 0 && pipex->infile_fd == -1) && !(i == pipex->cmd_count - 1
+				&& pipex->outfile_fd == -1))
 			find_command(pipex, i);
 		i++;
 	}
