@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: snakajim <snakajim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/21 13:13:14 by snakajim          #+#    #+#             */
-/*   Updated: 2024/12/22 16:47:25 by snakajim         ###   ########.fr       */
+/*   Created: 2024/12/22 16:55:44 by snakajim          #+#    #+#             */
+/*   Updated: 2024/12/22 16:56:08 by snakajim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	main(char **argv, int argc, char **envp)
 {
 	t_pipex	pipex;
 
-	if (argc != 5)
+	if (argc < 5)
 		return (ft_putstr_fd("Error: Invalid number of arguments\n", 2), 1);
 	if (!pipex_init(&pipex, argc, argv, envp))
 		return (free_pipex(&pipex), err_msg(NULL), 1);
