@@ -6,7 +6,7 @@
 /*   By: snakajim <snakajim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 16:41:33 by snakajim          #+#    #+#             */
-/*   Updated: 2024/12/22 17:47:59 by snakajim         ###   ########.fr       */
+/*   Updated: 2024/12/22 19:22:30 by snakajim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ void	cmd_not_found(t_pipex *pipex, int i)
 
 void	no_such_command(t_pipex *pipex, size_t i)
 {
+	ft_putstr_fd("pipex: ", 2);
 	ft_putstr_fd(pipex->cmds[i].args[0], 2);
 	ft_putstr_fd(": No such file or directory\n", 2);
 	pipex->cmds[i].found = false;
