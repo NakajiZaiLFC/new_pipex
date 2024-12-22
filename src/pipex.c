@@ -6,7 +6,7 @@
 /*   By: snakajim <snakajim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 14:02:30 by snakajim          #+#    #+#             */
-/*   Updated: 2024/12/22 17:47:35 by snakajim         ###   ########.fr       */
+/*   Updated: 2024/12/23 07:42:01 by snakajim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,17 +75,23 @@ bool	allocate_pids(t_pipex *pipex)
 void	wait_pids(t_pipex *pipex)
 {
 	size_t	i;
+	int		status;
 
 	i = 0;
 	while (i < pipex->cmd_count && pipex->child_pids[i] > 0)
 	{
-		waitpid(pipex->child_pids[i], NULL, 0);
+		waitpid(pipex->child_pids[i], &status, 0);
+		if (i == pipex->cmd_count - 1)
+		{
+			if (WIFEXITED(status))
+				pipex->exit_code = WEXITSTATUS(status);
+			else if (WIFSIGNALED(status))
+				pipex->exit_code = 128 + WTERMSIG(status);
+		}
 		i++;
 	}
 	if (pipex->outfile_fd == -1)
 		pipex->exit_code = 1;
 	else if (!pipex->cmds[pipex->cmd_count - 1].found)
 		pipex->exit_code = 127;
-	else
-		pipex->exit_code = 0;
 }
