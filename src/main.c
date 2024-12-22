@@ -6,13 +6,13 @@
 /*   By: snakajim <snakajim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 13:13:14 by snakajim          #+#    #+#             */
-/*   Updated: 2024/12/22 16:47:25 by snakajim         ###   ########.fr       */
+/*   Updated: 2024/12/22 17:29:00 by snakajim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/pipex.h"
 
-int	main(char **argv, int argc, char **envp)
+int	main(int argc, char **argv, char **envp)
 {
 	t_pipex	pipex;
 

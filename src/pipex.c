@@ -6,7 +6,7 @@
 /*   By: snakajim <snakajim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 14:02:30 by snakajim          #+#    #+#             */
-/*   Updated: 2024/12/22 14:37:11 by snakajim         ###   ########.fr       */
+/*   Updated: 2024/12/22 17:47:35 by snakajim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ bool	run_cmds(t_pipex *pipex)
 	{
 		pid = fork();
 		if (pid == 0)
-			children(*pipex, i);
+			children(pipex, i);
 		else if (pid > 0)
 			pipex->child_pids[i] = pid;
 		else
@@ -74,7 +74,7 @@ bool	allocate_pids(t_pipex *pipex)
 
 void	wait_pids(t_pipex *pipex)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	while (i < pipex->cmd_count && pipex->child_pids[i] > 0)

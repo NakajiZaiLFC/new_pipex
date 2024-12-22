@@ -6,7 +6,7 @@
 /*   By: snakajim <snakajim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 13:13:06 by snakajim          #+#    #+#             */
-/*   Updated: 2024/12/22 13:58:20 by snakajim         ###   ########.fr       */
+/*   Updated: 2024/12/22 17:47:16 by snakajim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ void	find_command(t_pipex *pipex, size_t i)
 		return (no_such_command(pipex, i));
 	while (pipex->paths[j])
 	{
-		cmd = ft_strjoin(pipex->paths[j], "/", pipex->cmds[i].args[0]);
+		cmd = ft_strjoin_3(pipex->paths[j], "/", pipex->cmds[i].args[0]);
 		if (is_command(pipex, cmd, i))
 			break ;
 		if (!pipex->paths[++j])

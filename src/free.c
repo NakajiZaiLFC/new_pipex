@@ -6,7 +6,7 @@
 /*   By: snakajim <snakajim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 14:41:01 by snakajim          #+#    #+#             */
-/*   Updated: 2024/12/22 16:41:25 by snakajim         ###   ########.fr       */
+/*   Updated: 2024/12/22 17:47:54 by snakajim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	free_array(char **array)
 
 void	close_all_fds(t_pipex *pipex)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	if (!pipex->pipes)

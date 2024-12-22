@@ -6,7 +6,7 @@
 /*   By: snakajim <snakajim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 16:41:33 by snakajim          #+#    #+#             */
-/*   Updated: 2024/12/22 16:50:35 by snakajim         ###   ########.fr       */
+/*   Updated: 2024/12/22 17:47:59 by snakajim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	err_msg(char *file)
 		ft_putstr_fd(file, 2);
 		ft_putstr_fd(": ", 2);
 	}
-	msg = strdup(strerror(errno));
+	msg = ft_strdup(strerror(errno));
 	if (msg)
 		ft_putstr_fd(msg, 2);
 	else
@@ -32,7 +32,7 @@ void	err_msg(char *file)
 		free(msg);
 }
 
-void	cmd_not_found(t_pipex *pipex, size_t i)
+void	cmd_not_found(t_pipex *pipex, int i)
 {
 	ft_putstr_fd(pipex->cmds[i].args[0], 2);
 	ft_putstr_fd(": command not found\n", 2);

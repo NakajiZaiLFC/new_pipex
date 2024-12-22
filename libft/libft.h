@@ -6,12 +6,13 @@
 /*   By: snakajim <snakajim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/28 21:55:05 by snakajim          #+#    #+#             */
-/*   Updated: 2024/05/19 22:22:00 by snakajim         ###   ########.fr       */
+/*   Updated: 2024/12/22 17:05:34 by snakajim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+
 # include <limits.h>
 # include <stdlib.h>
 # include <unistd.h>
@@ -50,4 +51,5 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
+
 #endif

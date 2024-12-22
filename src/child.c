@@ -6,7 +6,7 @@
 /*   By: snakajim <snakajim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 14:19:07 by snakajim          #+#    #+#             */
-/*   Updated: 2024/12/22 14:31:32 by snakajim         ###   ########.fr       */
+/*   Updated: 2024/12/22 17:47:44 by snakajim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	child(t_pipex *pipex, size_t i, int in_fd, int out_fd)
 	close_all_fds(pipex);
 	if (execve(pipex->cmds[i].path, pipex->cmds[i].args, pipex->envp) == -1)
 	{
-		free_pipex(&pipex);
+		free_pipex(pipex);
 		err_msg(NULL);
 		exit(1);
 	}
