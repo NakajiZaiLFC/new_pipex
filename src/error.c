@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: snakajim <snakajim@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nassy <nassy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 16:41:33 by snakajim          #+#    #+#             */
-/*   Updated: 2024/12/22 19:22:30 by snakajim         ###   ########.fr       */
+/*   Updated: 2024/12/23 14:32:45 by nassy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void	err_msg(char *file)
 
 void	cmd_not_found(t_pipex *pipex, int i)
 {
+	ft_putstr_fd("pipex: ", 2);
 	ft_putstr_fd(pipex->cmds[i].args[0], 2);
 	ft_putstr_fd(": command not found\n", 2);
 	pipex->cmds[i].found = false;

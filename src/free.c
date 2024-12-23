@@ -3,14 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: snakajim <snakajim@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nassy <nassy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 14:41:01 by snakajim          #+#    #+#             */
-/*   Updated: 2024/12/22 17:47:54 by snakajim         ###   ########.fr       */
+/*   Updated: 2024/12/23 14:23:38 by nassy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/pipex.h"
+
+static void	free_array(char **array);
 
 void	free_pipex(t_pipex *pipex)
 {
@@ -35,7 +37,7 @@ void	free_pipex(t_pipex *pipex)
 		free(pipex->child_pids);
 }
 
-void	free_array(char **array)
+static void	free_array(char **array)
 {
 	size_t	i;
 
