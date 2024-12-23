@@ -3,14 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   pipex.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: snakajim <snakajim@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nassy <nassy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 14:02:30 by snakajim          #+#    #+#             */
-/*   Updated: 2024/12/23 07:42:01 by snakajim         ###   ########.fr       */
+/*   Updated: 2024/12/23 14:22:18 by nassy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/pipex.h"
+
+static void	wait_pids(t_pipex *pipex);
+static bool	allocate_pids(t_pipex *pipex);
 
 bool	create_pipes(t_pipex *pipex)
 {
@@ -56,7 +59,7 @@ bool	run_cmds(t_pipex *pipex)
 	return (true);
 }
 
-bool	allocate_pids(t_pipex *pipex)
+static bool	allocate_pids(t_pipex *pipex)
 {
 	size_t	i;
 
@@ -72,7 +75,7 @@ bool	allocate_pids(t_pipex *pipex)
 	return (true);
 }
 
-void	wait_pids(t_pipex *pipex)
+static void	wait_pids(t_pipex *pipex)
 {
 	size_t	i;
 	int		status;

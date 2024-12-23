@@ -3,14 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: snakajim <snakajim@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nassy <nassy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 13:13:06 by snakajim          #+#    #+#             */
-/*   Updated: 2024/12/22 19:10:27 by snakajim         ###   ########.fr       */
+/*   Updated: 2024/12/23 14:23:13 by nassy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/pipex.h"
+
+static void	find_paths(t_pipex *pipex);
+static void	open_files(t_pipex *pipex);
+static void	find_command(t_pipex *pipex, size_t i);
+static bool	is_command(t_pipex *pipex, char *cmd, size_t i);
 
 bool	parse_input(t_pipex *pipex)
 {
@@ -32,7 +37,7 @@ bool	parse_input(t_pipex *pipex)
 	return (true);
 }
 
-void	find_paths(t_pipex *pipex)
+static void	find_paths(t_pipex *pipex)
 {
 	size_t	i;
 
@@ -45,7 +50,7 @@ void	find_paths(t_pipex *pipex)
 		pipex->paths = ft_split(pipex->envp[i] + 5, ':');
 }
 
-void	open_files(t_pipex *pipex)
+static void	open_files(t_pipex *pipex)
 {
 	pipex->infile_fd = open(pipex->argv[1], O_RDONLY);
 	if (pipex->infile_fd == -1)
@@ -68,7 +73,7 @@ void	open_files(t_pipex *pipex)
 	}
 }
 
-void	find_command(t_pipex *pipex, size_t i)
+static void	find_command(t_pipex *pipex, size_t i)
 {
 	char	*cmd;
 	size_t	j;
@@ -89,7 +94,7 @@ void	find_command(t_pipex *pipex, size_t i)
 	}
 }
 
-bool	is_command(t_pipex *pipex, char *cmd, size_t i)
+static bool	is_command(t_pipex *pipex, char *cmd, size_t i)
 {
 	if (!cmd)
 		return (false);
