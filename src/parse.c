@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nassy <nassy@student.42.fr>                +#+  +:+       +#+        */
+/*   By: snakajim <snakajim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 13:13:06 by snakajim          #+#    #+#             */
-/*   Updated: 2024/12/23 14:23:13 by nassy            ###   ########.fr       */
+/*   Updated: 2024/12/28 16:51:06 by snakajim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,8 +78,7 @@ static void	find_command(t_pipex *pipex, size_t i)
 	char	*cmd;
 	size_t	j;
 
-	if (pipex->cmds[i].args[0] && is_command(pipex,
-			ft_strdup(pipex->cmds[i].args[0]), i))
+	if (access(pipex->cmds[i].args[0], F_OK) == 0)
 		return ;
 	j = 0;
 	if (!pipex->paths)
